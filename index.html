@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+    <title>||NEW__JS||</title>
+</head>
+<body>
+    <h1>JAVASCRIPT TUTORIALs!</h1>
+    <ul>
+        <li>LIST-1</li>
+        <li id="first">LIST-2</li>
+        <li>LIST-3</li>
+        <li>LIST-4</li>
+    </ul>
+<hr>
+     <ul>
+        <li class="cls">LIST-1</li>
+        <li id="first">LIST-2</li>
+        <li class="cls">LIST-3</li>
+        <li class="cls">LIST-4</li>
+    </ul>
+    <hr>
+    <h2 class="intro">Title-1</h2>
+    <p>Description-1</p>
+    <div id="div-1">
+    <h2 class="intro">Title-2</h2>
+    <p>Description-2</p>
+    <h2>Title-3</h2>
+    <p>Description-3</p>
+    <h2 class="intro">Title-4</h2>
+    <p>Description-4</p>
+    </div>
+    <hr>
+     <ul>
+        <li class="aa" id="par">LIST-1</li>
+        <li class="aa">LIST-2</li>
+        <li class="aa">LIST-3</li>
+        <li class="aa">LIST-4</li>
+    </ul>
+    <hr>
+     <ul id="sibling">
+        <li class="aa">LIST-1</li>
+        <li class="aa">LIST-2</li>
+        <li class="aa">LIST-3</li>
+        <li class="aa">LIST-4</li>
+    </ul>
+    <button onclick="clickon()">All !</button>
+    <hr>
+    <ul>
+       <li class="aa">LIST-1</li>
+       <li id="siblingpre" class="aa">LIST-2</li>
+       <li class="aa">LIST-3</li>
+       <li class="aa">LIST-4</li>
+   </ul>
+   <button onclick="siblingpre()">Previes !</button>
+   <button onclick="siblingnext()">Next !</button>
+   <hr>
+   <ul>
+      <li class="aa">LIST-1</li>
+      <li id="appendclild" class="aa">LIST-2</li>
+      <li class="aa">LIST-3</li>
+      <li class="aa">LIST-4</li>
+  </ul>
+  <button onclick="appendclild()">Add SubTitle !</button>
+  <hr>
+  <ul id="appendLi">
+     <li>LIST-A1</li>
+     <li>LIST-A2</li>
+     <li>LIST-A3</li>
+     <li>LIST-A4</li>
+ </ul>
+ <button id="aaa" onclick=" appendLi()">Add LI !</button>
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        let elm = document.getElementById("first");
+        let elmm = elm.innerHTML= ("Hello")
+// ============================================================= 
+        let elm1 = document.getElementsByClassName("cls");
+        // console.log(elm1);
+        for(let i = 0; i < elm1.length; i++){
+            elm1[i].innerHTML=("Hello")
+        }
+// =============================================================
+        let elm2 = document.getElementsByTagName("p");
+            for(let a=0; a<elm2.length; a++){
+                elm2[a].innerHTML=("My Name is Chandan Kumar Keshri")
+            }
+        let elm3 = document.getElementsByTagName("h2");
+        for(let b = 0; b < elm3.length; b++){
+            elm3[b].innerHTML = ("What is your Name?")
+        }
+// =============================================================
+        let div1 = document.getElementById("div-1");
+            let div11 = div1.getElementsByTagName("p");
+                for(ab = 0; ab < div11.length; ab++){
+                    div11[ab].innerHTML = ("My Name is Chandan Kumar Keshri")
+                }
+// =============================================================
+        let elms = document.querySelectorAll("h2.intro")
+            //elms.innerHTML=("aaa"); //(It's not working)
+            for( let c = 0; c < elms.length; c++ ){
+                elms[c].innerHTML = "What is your Name?"
+            }
+// =============================================================
+        let selul = document.getElementById("par");
+            var selp = selul.parentElement;
+            // selp.innerHTML = "ddd"
+            // selp.style.color= "red"
+            console.log(selp);
+            for( var d = 0; d<selp.length; d++ ){ 
+                var asd=selp[d] ;
+                asd.style.color = "red";              
+              asd.innerHTML = ("dddd" );
+            }
+// =============================================================
+        let siblingf = document.getElementById("sibling");
+            let siblingfInn = siblingf.firstElementChild
+                console.log(siblingfInn);
+                siblingfInn.style.color = "red"
+
+                let siblingl = document.getElementById("sibling");
+            let siblinglInn = siblingl.lastElementChild
+                console.log(siblinglInn);
+                siblinglInn.style.color = "red"
+                
+            function clickon(){
+            let sibling = document.getElementById("sibling");
+                let siblingInn = sibling.children;
+                for(x = 0; x < siblingInn.length; x++ ){
+                    siblingInn[x].style.color = "red"
+                    siblingInn[x].innerHTML = "Hello!"
+                }
+            }
+            function siblingpre(){
+                let siblingpre = document.getElementById("siblingpre");
+                    let siblingpre_pre = siblingpre.previousElementSibling;
+                    siblingpre_pre.style.color = "blue" 
+            }
+            function siblingnext(){
+                let siblingnext = document.getElementById("siblingpre");
+                    let siblingnext_t  = siblingnext.nextElementSibling;
+                    siblingnext_t.style.color = "blue"
+            }
+// =============================================================
+            function appendclild(){
+            let appendclild = document.getElementById("appendclild");
+                let sm = document.createElement("small");
+                    sm.className="asd";
+                    sm.id="asd";
+                    sm.style.float="left"
+                    sm.style.width="100%"
+                    sm.style.color="#ccc"
+                    // sm.textContent = "This is a sub Title"
+                    let smText = document.createTextNode("This is a sub Title");
+                sm.appendChild(smText);
+                console.log(sm);
+                appendclild.appendChild(sm)
+            }
+            let ClickCount = 0;
+            function appendLi(){
+               
+                if(ClickCount < 1){                   
+                    let appLi = document.getElementById("appendLi");
+                    let creLi = document.createElement("li");
+                    creLi.style.color="red";
+                    creLi.textContent=("New LIST-A5");
+                    appLi.appendChild(creLi);
+                    ClickCount++;
+                }else {
+                    document.getElementById("aaa").disabled=true;
+                    alert("Limit has been access")
+                }
+                
+            }
+                // console.log(siblingInn)
+                // siblingInn.style.color = "red"
+    </script>
+</body>
+</html>
